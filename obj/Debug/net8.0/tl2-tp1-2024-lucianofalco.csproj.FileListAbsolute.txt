@@ -1,0 +1,14 @@
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\bin\Debug\net8.0\tl2-tp1-2024-lucianofalco.exe
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\bin\Debug\net8.0\tl2-tp1-2024-lucianofalco.deps.json
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\bin\Debug\net8.0\tl2-tp1-2024-lucianofalco.runtimeconfig.json
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\bin\Debug\net8.0\tl2-tp1-2024-lucianofalco.dll
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\bin\Debug\net8.0\tl2-tp1-2024-lucianofalco.pdb
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\tl2-tp1-2024-lucianofalco.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\tl2-tp1-2024-lucianofalco.AssemblyInfoInputs.cache
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\tl2-tp1-2024-lucianofalco.AssemblyInfo.cs
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\tl2-tp1-2024-lucianofalco.csproj.CoreCompileInputs.cache
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\tl2-tp1-2024-lucianofalco.dll
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\refint\tl2-tp1-2024-lucianofalco.dll
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\tl2-tp1-2024-lucianofalco.pdb
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\tl2-tp1-2024-lucianofalco.genruntimeconfig.cache
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\ref\tl2-tp1-2024-lucianofalco.dll
