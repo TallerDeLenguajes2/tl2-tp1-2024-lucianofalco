@@ -12,3 +12,4 @@ C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\re
 C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\tl2-tp1-2024-lucianofalco.pdb
 C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\tl2-tp1-2024-lucianofalco.genruntimeconfig.cache
 C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\ref\tl2-tp1-2024-lucianofalco.dll
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\tl2-tp1-2024-lucianofalco.sourcelink.json
