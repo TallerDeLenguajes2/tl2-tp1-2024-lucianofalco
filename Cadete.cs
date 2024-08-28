@@ -20,6 +20,37 @@ public class Cadete{
         this.listadPedidos = listadPedidos;
     }
     public double JornalCobrar(){
-        return Convert.ToDouble(listadPedidos.Count * 500);
+        int contador = 0 ;
+        foreach (var pedido in ListadPedidos)
+        {
+            if (pedido.Estado)
+            {
+                contador ++ ;
+            }
+        }
+        return Convert.ToDouble(contador * 500); //Calcula el jornal total a cobrar por el cadete basado en el número de pedidos entregados.
     }
+
+    public void EliminarPedido(Pedido pedido){
+        foreach (var p in ListadPedidos)
+        {
+            if (p.Nro == pedido.Nro)
+            {
+                listadPedidos.Remove(pedido);
+            }
+        }
+    }
+    public void AgregarPedido(Pedido pedido){
+        if (pedido != null)
+        {
+        ListadPedidos.Add(pedido);
+        }
+    }
+    
+    public List<Pedido> ListarPedidos()
+    {
+        return listadPedidos;
+    }
+
+
 }
