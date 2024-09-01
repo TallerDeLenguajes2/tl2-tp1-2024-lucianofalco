@@ -1,9 +1,6 @@
 using System.Globalization;
 using CsvHelper;
 using CsvHelper.Configuration;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
 
 public class Pedido
 {
@@ -11,13 +8,14 @@ public class Pedido
     private string observacion ;
     private bool estado ;
     private Cliente cliente;
+    private Cadete cadeteAsignado ;
 
     public int Nro { get => nro; set => nro = value; }
     public string Observacion { get => observacion; set => observacion = value; }
     public bool Estado { get => estado; set => estado = value; }
     public Cliente Cliente { get => cliente; set => cliente = value; }
+    public Cadete CadeteAsignado { get => cadeteAsignado; set => cadeteAsignado = value; }
 
-    // Constructor sin parámetros necesario para CsvHelper
     public Pedido() { }
 
     public Pedido(int nro, string observacion, bool estado, string nombreCliente , string direccionCliente , string telefonoCliente , string datosReferentesDireccion)

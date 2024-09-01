@@ -3,10 +3,11 @@ public class Cadeteria
     private string nombre;
     private string telefono;
     private List<Cadete> listadoCadetes;
-
+    private List<Pedido> listadoPedidos;
     public string Nombre { get => nombre; set => nombre = value; }
     public string Telefono { get => telefono; set => telefono = value; }
     public List<Cadete> ListadoCadetes { get => listadoCadetes; set => listadoCadetes = value; }
+    public List<Pedido> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
 
     public Cadeteria(string nombre, string telefono, List<Cadete> listadoCadetes)
     {
@@ -15,21 +16,32 @@ public class Cadeteria
         this.listadoCadetes = listadoCadetes;
     }
 
-    public void GenerarInformeActividad()
+    public double JornalCobrar(int id)
     {
-        Console.WriteLine($"Informe de Actividad de {Nombre}:");
-        foreach (var cadete in listadoCadetes)
+        int contador = 0;
+        Cadete cadete = BuscarCadetePorId(id);
+        if (cadete != null)
         {
-            Console.WriteLine($"Cadete: {cadete.Nombre}");
-            Console.WriteLine($"Jornal a cobrar: ${cadete.JornalCobrar()}");
-            Console.WriteLine("Pedidos:");
-            foreach (var pedido in cadete.ListarPedidos())
+            foreach (var pedido in ListadoPedidos)
             {
-                Console.WriteLine(pedido.VerDatosDelCliente());
-            }
-            Console.WriteLine();
+                if (pedido.Estado)
+                {
+                    contador++;
+                }
+            }    
+        }
+        return Convert.ToDouble(contador * 500);
+    }
+
+    public void AsignarCadeteAPedido(int idCad , int idPed){
+        Cadete cadete = BuscarCadetePorId(idCad);
+        Pedido pedido = BuscarPedidoPorId(idPed);
+        if (cadete != null && pedido!=null)
+        {
+            pedido.CadeteAsignado = cadete ;
         }
     }
+
     public void agregarCadete(Cadete cadete)
     {
         listadoCadetes.Add(cadete);
@@ -56,6 +68,17 @@ public class Cadeteria
         }
         return null;
     }
+    public Pedido BuscarPedidoPorId(int id)
+    {
+        foreach (var pedido in listadoPedidos)
+        {
+            if (pedido.Nro == id)
+            {
+                return pedido;
+            }
+        }
+        return null;
+    }
     public void ActualizarCadete(Cadete cadeteActualizado)
     {
         var cadete = BuscarCadetePorId(cadeteActualizado.Id);
@@ -64,6 +87,18 @@ public class Cadeteria
             cadete.Nombre = cadeteActualizado.Nombre;
             cadete.Direccion = cadeteActualizado.Direccion;
             cadete.Telefono = cadeteActualizado.Telefono;
+        }
+    }
+    public void ActualizarPedido(Pedido pedidoActualizado)
+    {
+        var pedido = BuscarPedidoPorId(pedidoActualizado.Nro);
+        if (pedido != null)
+        {
+            pedido.Cliente = pedidoActualizado.Cliente;
+            pedido.CadeteAsignado = pedidoActualizado.CadeteAsignado;
+            pedido.Cliente = pedidoActualizado.Cliente;
+            pedido.Estado = pedidoActualizado.Estado;
+            pedido.Observacion = pedidoActualizado.Observacion;
         }
     }
 }

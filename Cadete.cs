@@ -1,9 +1,6 @@
 using System.Globalization;
 using CsvHelper;
 using CsvHelper.Configuration;
-using System.IO;
-using System.Linq;
-using System.Collections.Generic;
 
 public class Cadete
 {
@@ -11,13 +8,13 @@ public class Cadete
     private string nombre;
     private string direccion;
     private string telefono;
-    private List<Pedido> listadPedidos;
+
 
     public int Id { get => id; set => id = value; }
     public string Nombre { get => nombre; set => nombre = value; }
     public string Direccion { get => direccion; set => direccion = value; }
     public string Telefono { get => telefono; set => telefono = value; }
-    public List<Pedido> ListadPedidos { get => listadPedidos; set => listadPedidos = value; }
+
 
     public Cadete(int id, string nombre, string direccion, string telefono)
     {
@@ -25,37 +22,6 @@ public class Cadete
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
-    }
-
-    public double JornalCobrar()
-    {
-        int contador = 0;
-        foreach (var pedido in ListadPedidos)
-        {
-            if (pedido.Estado)
-            {
-                contador++;
-            }
-        }
-        return Convert.ToDouble(contador * 500);
-    }
-
-    public void EliminarPedido(Pedido pedido)
-    {
-        listadPedidos.RemoveAll(p => p.Nro == pedido.Nro);
-    }
-
-    public void AgregarPedido(Pedido pedido)
-    {
-        if (pedido != null)
-        {
-            ListadPedidos.Add(pedido);
-        }
-    }
-
-    public List<Pedido> ListarPedidos()
-    {
-        return listadPedidos;
     }
 
     public static List<Cadete> CargarDesdeCsv(string rutaArchivo)

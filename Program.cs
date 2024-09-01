@@ -45,16 +45,16 @@ internal class Program
             switch (opcion)
             {
                 case 1:
-                    DarDeAltaPedidos(pedidos);
+                    DarDeAltaPedidos(cadeteria);
                     break;
                 case 2:
                     AsignarPedidosACadetes(pedidos, cadetesDisponibles, cadeteria);
                     break;
                 case 3:
-                    CambiarEstadosDePedidos(pedidos);
+                    CambiarEstadosDePedidos(cadeteria);
                     break;
                 case 4:
-                    ReasignarPedidoACadete(pedidos, cadetesDisponibles, cadeteria);
+                    ReasignarPedidoACadete(cadeteria);
                     break;
                 case 0:
                     Salir();
@@ -72,7 +72,7 @@ internal class Program
         Environment.Exit(0);
     }
 
-    private static void DarDeAltaPedidos(List<Pedido> pedidos)
+    private static void DarDeAltaPedidos(Cadeteria cadeteria)
     {
         Console.WriteLine("Ingrese los datos del nuevo pedido:");
         Console.Write("Número: ");
@@ -91,7 +91,7 @@ internal class Program
         string datosReferentesDireccion = Console.ReadLine();
 
         var nuevoPedido = new Pedido(nro, observacion, estado, nombreCliente, direccionCliente, telefonoCliente, datosReferentesDireccion);
-        pedidos.Add(nuevoPedido);
+        cadeteria.ListadoPedidos.Add(nuevoPedido);
 
         Console.WriteLine("Pedido agregado exitosamente.");
     }
@@ -116,37 +116,34 @@ internal class Program
 
         foreach (var pedido in nuevosPedidos)
         {
-            cadete.AgregarPedido(pedido);
+            cadeteria.AsignarCadeteAPedido(cadete.Id , pedido.Nro) ;
         }
 
         Console.WriteLine("Pedidos asignados exitosamente.");
     }
 
-    private static void CambiarEstadosDePedidos(List<Pedido> pedidosDisponibles)
+    private static void CambiarEstadosDePedidos(Cadeteria cadeteria)
     {
         Console.Write("Ingrese el número del pedido cuyo estado desea cambiar: ");
         int nroPedido = int.Parse(Console.ReadLine());
 
-        var pedido = pedidosDisponibles.FirstOrDefault(p => p.Nro == nroPedido);
-        if (pedido == null)
+        
+        foreach (var pedido in cadeteria.ListadoPedidos)
         {
-            Console.WriteLine("Pedido no encontrado.");
-            return;
+                Console.Write("Ingrese el nuevo estado del pedido (true/false): ");
+                bool nuevoEstado = bool.Parse(Console.ReadLine());
+                pedido.Estado = nuevoEstado;    
         }
-
-        Console.Write("Ingrese el nuevo estado del pedido (true/false): ");
-        bool nuevoEstado = bool.Parse(Console.ReadLine());
-        pedido.Estado = nuevoEstado;
 
         Console.WriteLine("Estado del pedido actualizado exitosamente.");
     }
 
-    private static void ReasignarPedidoACadete(List<Pedido> pedidos, List<Cadete> cadetesDisponibles, Cadeteria cadeteria)
+    private static void ReasignarPedidoACadete(Cadeteria cadeteria)
     {
         Console.Write("Ingrese el número del pedido que desea reasignar: ");
         int nroPedido = int.Parse(Console.ReadLine());
 
-        var pedido = pedidos.FirstOrDefault(p => p.Nro == nroPedido);
+        Pedido pedido = cadeteria.BuscarPedidoPorId(nroPedido);
         if (pedido == null)
         {
             Console.WriteLine("Pedido no encontrado.");
@@ -154,7 +151,7 @@ internal class Program
         }
 
         Console.WriteLine("Lista de cadetes disponibles:");
-        foreach (var cad in cadetesDisponibles)
+        foreach (var cad in cadeteria.ListadoCadetes)
         {
             Console.WriteLine($"ID: {cad.Id}, Nombre: {cad.Nombre}");
         }
@@ -169,12 +166,7 @@ internal class Program
             return;
         }
 
-        foreach (var cadete in cadetesDisponibles)
-        {
-            cadete.EliminarPedido(pedido);
-        }
-
-        nuevoCadete.AgregarPedido(pedido);
+        cadeteria.AsignarCadeteAPedido(pedido.Nro , nuevoCadete.Id);
 
         Console.WriteLine("Pedido reasignado exitosamente.");
     }
