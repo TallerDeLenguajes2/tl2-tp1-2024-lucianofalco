@@ -59,3 +59,6 @@
 - **Privados**: Métodos que deben ser utilizados solo dentro de la clase para mantener la encapsulación.
   - `Cadete.EliminarPedido(Pedido pedido)`
   - `Cadetería.BuscarCadetePorId(int id)`
+
+### Secuencia linq
+- `Las sentencias LINQ (Language Integrated Query) en C# proporcionan una forma poderosa y expresiva de consultar y manipular colecciones de datos. Puedes utilizar LINQ para realizar operaciones sobre listas de objetos, como filtrar, ordenar y agrupar. A continuación, te muestro cómo podrías aplicar LINQ para las operaciones del informe en tu programa.`

@@ -13,3 +13,6 @@ C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\tl
 C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\tl2-tp1-2024-lucianofalco.genruntimeconfig.cache
 C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\ref\tl2-tp1-2024-lucianofalco.dll
 C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\tl2-tp1-2024-lucianofalco.sourcelink.json
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\bin\Debug\net8.0\CsvHelper.dll
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\tl2-tp1-2024-lucianofalco.csproj.AssemblyReference.cache
+C:\Users\luciano\Documents\taller2\tl2-tp1-2024-lucianofalco\obj\Debug\net8.0\tl2-tp1-.0D452BE9.Up2Date

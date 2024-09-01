@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "/ncME+o5+Ss=",
+  "dgSpecHash": "mSJ99wzTFCg=",
   "success": true,
   "projectFilePath": "C:\\Users\\luciano\\Documents\\taller2\\tl2-tp1-2024-lucianofalco\\tl2-tp1-2024-lucianofalco.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\luciano\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

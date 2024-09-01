@@ -25,7 +25,7 @@ public class Cadeteria
             Console.WriteLine("Pedidos:");
             foreach (var pedido in cadete.ListarPedidos())
             {
-                Console.WriteLine(pedido.VerDatosDelCliente);
+                Console.WriteLine(pedido.VerDatosDelCliente());
             }
             Console.WriteLine();
         }
@@ -66,8 +66,4 @@ public class Cadeteria
             cadete.Telefono = cadeteActualizado.Telefono;
         }
     }
-
-
-
-
 }

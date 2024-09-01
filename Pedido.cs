@@ -1,32 +1,59 @@
+using System.Globalization;
+using CsvHelper;
+using CsvHelper.Configuration;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+
 public class Pedido
 {
-    private int nro;
-    private string observacion;
+    private int nro ;
+    private string observacion ;
+    private bool estado ;
     private Cliente cliente;
-    private bool estado;
 
     public int Nro { get => nro; set => nro = value; }
     public string Observacion { get => observacion; set => observacion = value; }
     public bool Estado { get => estado; set => estado = value; }
-    public Cliente Cliente { get => cliente; }
+    public Cliente Cliente { get => cliente; set => cliente = value; }
 
-    public Pedido(int nro, string observacion, bool estado, string nombreCliente, string direccionCliente, string telefonoCliente, string datosReferentesDireccion)
+    // Constructor sin parámetros necesario para CsvHelper
+    public Pedido() { }
+
+    public Pedido(int nro, string observacion, bool estado, string nombreCliente , string direccionCliente , string telefonoCliente , string datosReferentesDireccion)
     {
         this.nro = nro;
         this.observacion = observacion;
         this.estado = estado;
-        cliente = new Cliente(nombreCliente, direccionCliente, telefonoCliente, datosReferentesDireccion);
+        Cliente = new Cliente(nombreCliente , direccionCliente , telefonoCliente , datosReferentesDireccion);
     }
 
     public string VerDatosDelCliente()
     {
-        string information = $"\tCliente nombre : {cliente.Nombre} \n Telefono: {cliente.Telefono} \n \tPedido : {Nro} Observacion: {observacion} \n Estado: {estado}";
+        string information = $"\tCliente nombre : {Cliente.Nombre} \n Telefono: {Cliente.Telefono} \n \tPedido : {Nro} Observacion: {Observacion} \n Estado: {Estado}";
         return information;
     }
 
     public string VerDireccionDelCliente()
     {
-        string datos = $"Cliente: {cliente.Direccion}";
+        string datos = $"Direccion: {Cliente.Direccion}";
         return datos;
+    }
+
+    public static List<Pedido> CargarPedidosDesdeCsv(string rutaArchivo)
+    {
+        List<Pedido> pedidos = new List<Pedido>();
+
+        using (var reader = new StreamReader(rutaArchivo))
+        using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
+        {
+            HeaderValidated = null,
+            MissingFieldFound = null
+        }))
+        {
+            pedidos = csv.GetRecords<Pedido>().ToList();
+        }
+
+        return pedidos;
     }
 }
