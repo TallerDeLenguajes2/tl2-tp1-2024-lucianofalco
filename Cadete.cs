@@ -24,21 +24,4 @@ public class Cadete
         this.telefono = telefono;
     }
 
-    public static List<Cadete> CargarDesdeCsv(string rutaArchivo)
-    {
-        List<Cadete> cadetes = new List<Cadete>();
-
-        using (var reader = new StreamReader(rutaArchivo))
-        using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
-        {
-            HeaderValidated = null,  // Desactivar validación de cabeceras
-            MissingFieldFound = null // Desactivar validación de campos faltantes
-        }))
-        {
-            // Leer los registros de Cadete sin validar las cabeceras
-            cadetes = csv.GetRecords<Cadete>().ToList();
-        }
-
-        return cadetes;
-    }
 }

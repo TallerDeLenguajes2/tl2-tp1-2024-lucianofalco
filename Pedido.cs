@@ -26,32 +26,4 @@ public class Pedido
         Cliente = new Cliente(nombreCliente , direccionCliente , telefonoCliente , datosReferentesDireccion);
     }
 
-    public string VerDatosDelCliente()
-    {
-        string information = $"\tCliente nombre : {Cliente.Nombre} \n Telefono: {Cliente.Telefono} \n \tPedido : {Nro} Observacion: {Observacion} \n Estado: {Estado}";
-        return information;
-    }
-
-    public string VerDireccionDelCliente()
-    {
-        string datos = $"Direccion: {Cliente.Direccion}";
-        return datos;
-    }
-
-    public static List<Pedido> CargarPedidosDesdeCsv(string rutaArchivo)
-    {
-        List<Pedido> pedidos = new List<Pedido>();
-
-        using (var reader = new StreamReader(rutaArchivo))
-        using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)
-        {
-            HeaderValidated = null,
-            MissingFieldFound = null
-        }))
-        {
-            pedidos = csv.GetRecords<Pedido>().ToList();
-        }
-
-        return pedidos;
-    }
 }
