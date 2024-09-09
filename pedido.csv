@@ -1,5 +1,5 @@
-nro,observacion,estado,nombreCliente,direccionCliente,telefonoCliente,datosReferentesDireccion
-101,Entrega urgente,true,Carlos Diaz,Calle Luna 111,111222333,Referencia: cerca del parque
-102,Entrega programada,false,Lucia Fernández,Avenida Sol 222,222333444,Referencia: al lado de la farmacia
-103,Entrega en horario,true,Javier Martinez,Pasaje Estrella 333,333444555,Referencia: frente a la escuela
-104,Entrega con cuidado,false,Sofia Rojas,Calle Rio 444,444555666,Referencia: edificio amarillo
+101,Entrega urgente,True,Carlos Diaz,Calle Luna 111,111222333,Referencia: cerca del parque
+102,Entrega programada,False,Lucia Fernández,Avenida Sol 222,222333444,Referencia: al lado de la farmacia
+103,Entrega en horario,True,Javier Martinez,Pasaje Estrella 333,333444555,Referencia: frente a la escuela
+104,Entrega con cuidado,False,Sofia Rojas,Calle Rio 444,444555666,Referencia: edificio amarillo
+10,milafrita con papaneza,False,luciano,siempre viva 1798,123123123,flia simpson
