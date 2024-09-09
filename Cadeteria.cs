@@ -145,28 +145,32 @@ public class Cadeteria
         }
     }
 
-    public void MostrarCadedes()
+    public string MostrarCadedes()
     {
+        string datos = "" ;
         foreach (var cadete in listadoCadetes)
         {
-            Console.WriteLine();
-            Console.WriteLine($"ID{cadete.Id}");
-            Console.WriteLine($"\t Nombre: {cadete.Nombre}");
-            Console.WriteLine($"\t Direccion: {cadete.Direccion}");
-            Console.WriteLine($"\t Telefono: {cadete.Telefono}");
+            datos +=
+            $"\n\nID{cadete.Id}" +
+            $"\t Nombre: {cadete.Nombre}"+
+            $"\t Direccion: {cadete.Direccion}"+
+            $"\t Telefono: {cadete.Telefono}" ;
         }
+        return datos ;
     }
-    public void MostrarPedidos()
+    public string MostrarPedidos()
     {
+        string datos = "";
         foreach (var pedido in listadoPedidos)
         {
-            Console.WriteLine();
-            Console.WriteLine($"ID pedido {pedido.Nro}");
-            Console.WriteLine($"\t Cadete asignado: ID: {pedido.CadeteAsignado.Id} Nombre: {pedido.CadeteAsignado.Nombre}");
-            Console.WriteLine($"\t Cliente: {pedido.Cliente.Nombre} Direccion: {pedido.Cliente.Direccion}");
-            Console.WriteLine($"\t Estado: {pedido.Estado}");
-            Console.WriteLine($"\t Observacion: {pedido.Observacion}");
+            datos += 
+            $"\n\nID pedido {pedido.Nro}" +
+            $"\t Cadete asignado: ID: {pedido.CadeteAsignado.Id} Nombre: {pedido.CadeteAsignado.Nombre}"+
+            $"\t Cliente: {pedido.Cliente.Nombre} Direccion: {pedido.Cliente.Direccion}"+
+            $"\t Estado: {pedido.Estado}"+
+            $"\t Observacion: {pedido.Observacion}";
         }
+        return datos;
     }
 
 }

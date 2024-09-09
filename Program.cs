@@ -136,10 +136,7 @@ namespace CadeteriaApp
         public static void AsignarPedidosACadetes() 
         {
             Console.WriteLine("Lista de cadetes disponibles:");
-            foreach (var cad in cadetesDisponibles)
-            {
-                Console.WriteLine($"ID: {cad.Id}, Nombre: {cad.Nombre}");
-            }
+            Console.WriteLine(cadeteria.MostrarCadedes());
 
             Console.Write("Ingrese el ID del cadete al que se le asignarán los pedidos: ");
             int idCadete = int.Parse(Console.ReadLine());
@@ -150,25 +147,18 @@ namespace CadeteriaApp
                 Console.WriteLine("Cadete no encontrado.");
                 return;
             }
-
-            foreach (var pedido in pedidos)
-            {
-                Console.WriteLine($"ID: {pedido.Nro}, Nombre: {pedido.Observacion}");
-            }
+            Console.WriteLine("Lista de pedidos disponibles:");
+            Console.WriteLine(cadeteria.MostrarPedidos());
             Console.Write($"Ingrese el ID del pedido al que se le asignarán al cadete {cadete.Nombre}");
             int idpedido = int.Parse(Console.ReadLine());
             cadeteria.AsignarCadeteAPedido(cadete.Id, idpedido);
-
             Console.WriteLine("Pedidos asignados exitosamente.");
         }
 
         private static void CambiarEstadosDePedidos()
         {
             Console.Write("Ingrese el número del pedido cuyo estado desea cambiar: ");
-            foreach (var ped in pedidos)
-            {
-                Console.WriteLine($"ID: {ped.Nro}, Nombre: {ped.Observacion}");
-            }
+            Console.WriteLine(cadeteria.MostrarPedidos());
             int nroPedido = int.Parse(Console.ReadLine());
 
             var pedido = cadeteria.BuscarPedidoPorId(nroPedido);
@@ -188,10 +178,7 @@ namespace CadeteriaApp
         private static void ReasignarPedidoACadete()
         {
             Console.Write("Ingrese el número del pedido que desea reasignar: ");
-            foreach (var ped in pedidos)
-            {
-                Console.WriteLine($"ID: {ped.Nro}, Nombre: {ped.Observacion}");
-            }
+            Console.WriteLine(cadeteria.MostrarPedidos());
             int nroPedido = int.Parse(Console.ReadLine());
 
             var pedido = cadeteria.BuscarPedidoPorId(nroPedido);
@@ -202,10 +189,7 @@ namespace CadeteriaApp
             }
 
             Console.WriteLine("Lista de cadetes disponibles:");
-            foreach (var cad in cadeteria.ListadoCadetes)
-            {
-                Console.WriteLine($"ID: {cad.Id}, Nombre: {cad.Nombre}");
-            }
+           Console.WriteLine(cadeteria.MostrarCadedes());
 
             Console.Write("Ingrese el ID del nuevo cadete al que se le asignará el pedido: ");
             int idCadete = int.Parse(Console.ReadLine());
@@ -216,9 +200,7 @@ namespace CadeteriaApp
                 Console.WriteLine("Cadete no encontrado.");
                 return;
             }
-
             cadeteria.AsignarCadeteAPedido(nuevoCadete.Id, pedido.Nro);
-
             Console.WriteLine("Pedido reasignado exitosamente.");
         }
     }
